@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting you to the survey...</p>
+
+  <script>
+    const forms = [
+      "https://forms.gle/qDGNfaUmKiEzuHhr6",
+      "https://forms.gle/gh9UJL3yhAi1mNAu7",
+      "https://forms.gle/cdkeSkvDsR7ReuoZ6",
+      "https://forms.gle/yKq3AJghKmJAVDxC7"
+    ];
+
+    const selectedForm = forms[Math.floor(Math.random() * forms.length)];
+
+    if (!selectedForm || !selectedForm.startsWith("https://")) {
+      document.body.innerHTML = "<p>Invalid survey link configuration.</p>";
+      throw new Error("Invalid redirect URL: " + selectedForm);
+    }
+
+    window.location.href = selectedForm;
+  </script>
+</body>
+</html>
